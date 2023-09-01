@@ -20,7 +20,7 @@
             setTimeout(() => {
                 this.classList.remove("shrink"); // Remove the 'shrink' class after animation
             }, 1000);
-            fetch("http://192.168.8.115:9000/trigger_notification") 
+            fetch("https://magn3054.github.io/notification/trigger_notification") 
                 .then(response => {
                     if (response.ok) {
                         console.log("Notification request sent successfully.");
