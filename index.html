@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title>Attention Button</title>
+    <link rel="stylesheet" href="heartbutton.css">
+    <link rel="website icon" class="png" href="F_M-icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="wrapper" >
+        <div class="sizewrapper">
+            <button class="heart" id="attentionButton"></button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("attentionButton").addEventListener("click", function() {
+            this.classList.add("shrink"); // Add the 'shrink' class
+            setTimeout(() => {
+                this.classList.remove("shrink"); // Remove the 'shrink' class after animation
+            }, 1000);
+            fetch("http://localhost:9000/trigger_notification") 
+                .then(response => {
+                    if (response.ok) {
+                        console.log("Notification request sent successfully.");
+                    } else {
+                        console.error("Failed to send notification request.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+            });
+        });
+    </script>
+</body>
+</html>
